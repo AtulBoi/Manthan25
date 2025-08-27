@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मंथन '२५ | हिंदी पखवाड़ा</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Confetti Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* Custom styles for the enhanced UI */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(170deg, #FFF8E1 0%, #FFEBCD 100%); /* Soft gradient background */
+        }
+        .font-hindi {
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(233, 82, 82, 0.8) 0%, rgba(230, 220, 73, 0.4) 60%, rgba(0,0,0,0) 100%);
+        }
+        /* Glowing text effect for the main title */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.6), 0 0 30px rgba(255, 165, 0, 0.4);
+        }
+        
+        /* 3D card styling */
+        .competition-card {
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .competition-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .competition-card:hover:before {
+            left: 100%;
+        }
+
+        .competition-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Shiny button and input styles */
+        .shiny-input {
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+        .shiny-input:focus {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 0 0 3px rgba(251, 191, 36, 0.4);
+            border-color: #FBBF24;
+        }
+
+        .shiny-btn {
+            background: linear-gradient(145deg, #f97316, #ea580c);
+            border: none;
+            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+            transition: all 0.3s ease;
+        }
+        .shiny-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(234, 88, 12, 0.5);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- 1st Section: MANTHAN '25 (Hero Section) -->
+    <header id="home" class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('http://googleusercontent.com/file_content/0');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="absolute inset-0 hero-gradient"></div>
+        <!-- Particle Canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="relative z-10 p-4">
+            <h2 class="font-hindi text-4xl md:text-6xl font-bold tracking-wider">हिंदी पखवाड़ा</h2>
+            <h1 class="font-hindi text-7xl md:text-9xl font-extrabold my-4 glow-text">मंथन '२५</h1>
+            <p class="text-xl md:text-2xl mt-4">१-१४ सितम्बर २०२५</p>
+            <p class="text-lg md:text-xl">काव्य • कथा • संस्कृति</p>
+            <a href="#competitions" class="mt-8 inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shiny-btn">
+                Explore Events
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2nd Section: Excited? (Invitation Section) -->
+        <section id="excited" class="py-20 px-4 bg-orange-50/50">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="font-hindi text-5xl font-bold text-orange-800 mb-4">उत्सुक हैं?</h2>
+                <p class="text-lg text-gray-600 mb-8"> अपना निमंत्रण पत्र प्राप्त करने के लिए नीचे दिए गए विवरण भरें। </p>
+                
+                <div id="invitation-form" class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="space-y-6">
+                        <input type="text" id="scholarId" placeholder="7-Digit Scholar ID" maxlength="7" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
+                        <input type="text" id="studentName" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
+                    </div>
+                    <button id="excited-btn" class="w-full mt-6 text-white font-bold py-3 px-6 rounded-lg shiny-btn">
+                        I'm Excited!
+                    </button>
+                    <p id="form-error" class="text-red-500 mt-4 h-4"></p>
+                </div>
+
+                <div id="download-section" class="text-center mt-8 hidden">
+                     <a id="download-btn" href="path/to/your/invitation.pdf" download="Manthan_25_Invitation.pdf" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-110 shadow-lg">
+                        Download Invitation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3rd Section: Participate in Competitions -->
+        <section id="competitions" class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="font-hindi text-5xl font-bold text-center text-orange-800 mb-12">प्रतियोगिताओं में भाग लें</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="perspective: 1000px;">
+                    <!-- Competition Cards will be dynamically inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 4th Section: Footer -->
+    <footer class="bg-orange-800 text-white text-center py-4">
+        <p>Created by ATUL SINGH (JS of ILLUMINITS)</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Particle Animation for Header ---
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            let particles = [];
+
+            function createParticle() {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const radius = Math.random() * 1.5 + 0.5;
+                const color = 'rgba(255, 222, 173, 0.7)'; // Light orange/gold color
+                const speedX = (Math.random() - 0.5) * 0.5;
+                const speedY = (Math.random() - 0.5) * 0.5;
+                particles.push({x, y, radius, color, speedX, speedY});
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            
+            for(let i = 0; i < 100; i++) {
+                createParticle();
+            }
+            animateParticles();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                particles = [];
+                 for(let i = 0; i < 100; i++) {
+                    createParticle();
+                }
+            });
+
+
+            // --- Competition Data ---
+            const competitions = [
+                { name: "मेधा मंच", type: "Quiz", link: "#" },
+                { name: "शब्द सृजन", type: "Essay Writing", link: "#" },
+                { name: "कथा प्रवीणता", type: "Script Writing", link: "#" },
+                { name: "काव्य प्रतिभा", type: "Online Poetry Writing", link: "#" },
+                { name: "रंगमंच", type: "Art Competition", link: "#" },
+                { name: "तर्क समागम", type: "Debate", link: "#" },
+                { name: "कलम का जादू", type: "Writing Competition", link: "#" },
+                { name: "काव्योत्सव", type: "Kavi Sammelan", link: "#" },
+                { name: "विस्तृत विवरण", type: "Report Writing", link: "#" },
+                { name: "वाक् प्रपंच", type: "Extempore", link: "#" },
+                { name: "नारा निर्माण", type: "Slogan Writing", link: "#" },
+                { name: "स्वर मंच", type: "Open Mic", link: "#" }
+            ];
+
+            const competitionContainer = document.querySelector('#competitions .grid');
+            competitions.forEach(comp => {
+                const cardHtml = `
+                    <div class="competition-card">
+                        <div class="p-6 text-center">
+                            <h3 class="font-hindi text-3xl font-bold text-orange-700">${comp.name}</h3>
+                            <p class="text-gray-600 mb-4">${comp.type}</p>
+                            <a href="${comp.link}" target="_blank" class="inline-block bg-orange-100 text-orange-800 font-semibold py-2 px-6 rounded-full hover:bg-orange-200 transition duration-300">
+                                Participate
+                            </a>
+                        </div>
+                    </div>
+                `;
+                competitionContainer.innerHTML += cardHtml;
+            });
+
+            // --- 3D Card Tilt Effect ---
+            const cards = document.querySelectorAll('.competition-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    const rotateX = -y / 20;
+                    const rotateY = x / 20;
+
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+
+
+            // --- Invitation Section Logic ---
+            const excitedBtn = document.getElementById('excited-btn');
+            const scholarIdInput = document.getElementById('scholarId');
+            const studentNameInput = document.getElementById('studentName');
+            const formError = document.getElementById('form-error');
+            const invitationForm = document.getElementById('invitation-form');
+            const downloadSection = document.getElementById('download-section');
+
+            excitedBtn.addEventListener('click', function() {
+                const scholarId = scholarIdInput.value.trim();
+                const studentName = studentNameInput.value.trim();
+                
+                if (studentName === '' || scholarId === '') {
+                    formError.textContent = 'Please fill in both fields.';
+                    return;
+                }
+                if (!/^\d{7}$/.test(scholarId)) {
+                    formError.textContent = 'Scholar ID must be exactly 7 digits.';
+                    return;
+                }
+                
+                formError.textContent = '';
+                launchConfetti();
+                invitationForm.classList.add('hidden');
+                downloadSection.classList.remove('hidden');
+            });
+
+            // --- Confetti Animation Function ---
+            function launchConfetti() {
+                const duration = 5 * 1000;
+                const animationEnd = Date.now() + duration;
+                const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+
+                function randomInRange(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
+
+                const interval = setInterval(function() {
+                    const timeLeft = animationEnd - Date.now();
+                    if (timeLeft <= 0) return clearInterval(interval);
+                    const particleCount = 50 * (timeLeft / duration);
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                }, 250);
+            }
+        });
+    </script>
+
+</body>
+</html>
