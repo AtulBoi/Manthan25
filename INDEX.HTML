@@ -13,115 +13,158 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Confetti Animation Library -->
+    <!-- Confetti & Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
-        /* Custom styles for the enhanced UI */
+        /* Custom styles inspired by the new poster */
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(170deg, #FFF8E1 0%, #FFEBCD 100%); /* Soft gradient background */
+            background: linear-gradient(170deg, #0a192f 0%, #173a5e 100%); /* Deep blue gradient */
+            color: #e6f1ff;
         }
         .font-hindi {
             font-family: 'Tiro Devanagari Hindi', serif;
         }
         .hero-gradient {
-            background: linear-gradient(to top, rgba(233, 82, 82, 0.8) 0%, rgba(230, 220, 73, 0.4) 60%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to top, rgba(10,25,47,1) 0%, rgba(10,25,47,0.6) 50%, rgba(10,25,47,0) 100%);
         }
-        /* Glowing text effect for the main title */
+        /* Glowing text effect for the main title - now gold */
         .glow-text {
-            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.6), 0 0 30px rgba(255, 165, 0, 0.4);
+            color: #FFD700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.7), 0 0 16px rgba(255, 215, 0, 0.5), 0 0 24px rgba(255, 215, 0, 0.3);
         }
         
-        /* 3D card styling */
+        /* 3D card styling with new theme */
         .competition-card {
-            background: #ffffff;
+            background: rgba(23, 58, 94, 0.7); /* Translucent blue */
+            border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 1rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-
-        .competition-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .competition-card:hover:before {
-            left: 100%;
-        }
-
         .competition-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255, 215, 0, 0.7);
         }
 
-        /* Shiny button and input styles */
+        /* Shiny button and input styles with new theme */
         .shiny-input {
-            border: 1px solid #ddd;
-            background: #f9f9f9;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            border: 1px solid #304a6e;
+            background: #0a192f;
+            color: #e6f1ff;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
         }
+        .shiny-input::placeholder { color: #8892b0; }
         .shiny-input:focus {
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 0 0 3px rgba(251, 191, 36, 0.4);
-            border-color: #FBBF24;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2), 0 0 0 3px rgba(255, 215, 0, 0.4);
+            border-color: #FFD700;
         }
 
         .shiny-btn {
-            background: linear-gradient(145deg, #f97316, #ea580c);
+            background: linear-gradient(145deg, #FFD700, #FFBF00);
+            color: #173a5e;
             border: none;
-            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
             transition: all 0.3s ease;
         }
         .shiny-btn:hover {
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(234, 88, 12, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
         }
+        
+        /* Swiper Slider Styles */
+        .swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 400px; /* Adjust size as needed */
+            height: 400px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .swiper-3d .swiper-slide-shadow-left,
+        .swiper-3d .swiper-slide-shadow-right {
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-200">
 
     <!-- 1st Section: MANTHAN '25 (Hero Section) -->
-    <header id="home" class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('http://googleusercontent.com/file_content/0');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
+    <header id="home" class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('http://googleusercontent.com/file_content/1');">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="absolute inset-0 hero-gradient"></div>
-        <!-- Particle Canvas -->
         <canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
         <div class="relative z-10 p-4">
-            <h2 class="font-hindi text-4xl md:text-6xl font-bold tracking-wider">हिंदी पखवाड़ा</h2>
+            <h2 class="font-hindi text-4xl md:text-6xl font-bold tracking-wider text-gray-300">हिंदी पखवाड़ा</h2>
             <h1 class="font-hindi text-7xl md:text-9xl font-extrabold my-4 glow-text">मंथन '२५</h1>
             <p class="text-xl md:text-2xl mt-4">१-१४ सितम्बर २०२५</p>
             <p class="text-lg md:text-xl">काव्य • कथा • संस्कृति</p>
-            <a href="#competitions" class="mt-8 inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shiny-btn">
+            <a href="#competitions" class="mt-8 inline-block text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shiny-btn">
                 Explore Events
             </a>
         </div>
     </header>
 
     <main>
+        <!-- New Section: Sliding Posters -->
+        <section id="gallery" class="py-20">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Add your 12 poster images here -->
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 1"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+2" alt="Event Poster 2"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+3" alt="Event Poster 3"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+4" alt="Event Poster 4"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+5" alt="Event Poster 5"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+6" alt="Event Poster 6"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+7" alt="Event Poster 7"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+8" alt="Event Poster 8"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+9" alt="Event Poster 9"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+10" alt="Event Poster 10"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+11" alt="Event Poster 11"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+12" alt="Event Poster 12"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
         <!-- 2nd Section: Excited? (Invitation Section) -->
-        <section id="excited" class="py-20 px-4 bg-orange-50/50">
+        <section id="excited" class="py-20 px-4">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="font-hindi text-5xl font-bold text-orange-800 mb-4">उत्सुक हैं?</h2>
-                <p class="text-lg text-gray-600 mb-8"> अपना निमंत्रण पत्र प्राप्त करने के लिए नीचे दिए गए विवरण भरें। </p>
+                <h2 class="font-hindi text-5xl font-bold glow-text mb-4">उत्सुक हैं?</h2>
+                <p class="text-lg text-gray-400 mb-8">अपना निमंत्रण पत्र प्राप्त करने के लिए नीचे दिए गए विवरण भरें।</p>
                 
-                <div id="invitation-form" class="bg-white p-8 rounded-2xl shadow-xl">
+                <div id="invitation-form" class="bg-opacity-50 bg-blue-900/10 p-8 rounded-2xl shadow-xl border border-blue-800/20 backdrop-filter backdrop-blur-lg">
                     <div class="space-y-6">
                         <input type="text" id="scholarId" placeholder="7-Digit Scholar ID" maxlength="7" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
                         <input type="text" id="studentName" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
                     </div>
-                    <button id="excited-btn" class="w-full mt-6 text-white font-bold py-3 px-6 rounded-lg shiny-btn">
+                    <button id="excited-btn" class="w-full mt-6 font-bold py-3 px-6 rounded-lg shiny-btn">
                         I'm Excited!
                     </button>
-                    <p id="form-error" class="text-red-500 mt-4 h-4"></p>
+                    <p id="form-error" class="text-red-400 mt-4 h-4"></p>
                 </div>
 
                 <div id="download-section" class="text-center mt-8 hidden">
@@ -135,16 +178,16 @@
         <!-- 3rd Section: Participate in Competitions -->
         <section id="competitions" class="py-20 px-4">
             <div class="max-w-6xl mx-auto">
-                <h2 class="font-hindi text-5xl font-bold text-center text-orange-800 mb-12">प्रतियोगिताओं में भाग लें</h2>
+                <h2 class="font-hindi text-5xl font-bold text-center glow-text mb-12">प्रतियोगिताओं में भाग लें</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="perspective: 1000px;">
-                    <!-- Competition Cards will be dynamically inserted here by JavaScript -->
+                    <!-- Competition Cards will be dynamically inserted here -->
                 </div>
             </div>
         </section>
     </main>
 
     <!-- 4th Section: Footer -->
-    <footer class="bg-orange-800 text-white text-center py-4">
+    <footer class="bg-gray-900/20 text-center py-6">
         <p>Created by ATUL SINGH (JS of ILLUMINITS)</p>
     </footer>
 
@@ -158,19 +201,19 @@
             let particles = [];
 
             function createParticle() {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * canvas.height;
-                const radius = Math.random() * 1.5 + 0.5;
-                const color = 'rgba(255, 222, 173, 0.7)'; // Light orange/gold color
-                const speedX = (Math.random() - 0.5) * 0.5;
-                const speedY = (Math.random() - 0.5) * 0.5;
-                particles.push({x, y, radius, color, speedX, speedY});
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5 + 0.5,
+                    color: 'rgba(255, 215, 0, 0.7)', // Gold color
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    speedY: (Math.random() - 0.5) * 0.3
+                });
             }
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
+                particles.forEach(p => {
                     p.x += p.speedX;
                     p.y += p.speedY;
                     if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
@@ -179,39 +222,49 @@
                     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                     ctx.fillStyle = p.color;
                     ctx.fill();
-                }
+                });
                 requestAnimationFrame(animateParticles);
             }
-            
-            for(let i = 0; i < 100; i++) {
-                createParticle();
-            }
+            for(let i = 0; i < 100; i++) createParticle();
             animateParticles();
-
             window.addEventListener('resize', () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
                 particles = [];
-                 for(let i = 0; i < 100; i++) {
-                    createParticle();
-                }
+                for(let i = 0; i < 100; i++) createParticle();
             });
 
+            // --- Swiper Slider Initialization ---
+            var swiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
 
             // --- Competition Data ---
             const competitions = [
-                { name: "मेधा मंच", type: "Quiz", link: "#" },
-                { name: "शब्द सृजन", type: "Essay Writing", link: "#" },
-                { name: "कथा प्रवीणता", type: "Script Writing", link: "#" },
-                { name: "काव्य प्रतिभा", type: "Online Poetry Writing", link: "#" },
-                { name: "रंगमंच", type: "Art Competition", link: "#" },
-                { name: "तर्क समागम", type: "Debate", link: "#" },
-                { name: "कलम का जादू", type: "Writing Competition", link: "#" },
-                { name: "काव्योत्सव", type: "Kavi Sammelan", link: "#" },
-                { name: "विस्तृत विवरण", type: "Report Writing", link: "#" },
-                { name: "वाक् प्रपंच", type: "Extempore", link: "#" },
-                { name: "नारा निर्माण", type: "Slogan Writing", link: "#" },
-                { name: "स्वर मंच", type: "Open Mic", link: "#" }
+                { name: "मेधा मंच", type: "Quiz", link: "#" }, { name: "शब्द सृजन", type: "Essay Writing", link: "#" },
+                { name: "कथा प्रवीणता", type: "Script Writing", link: "#" }, { name: "काव्य प्रतिभा", type: "Online Poetry Writing", link: "#" },
+                { name: "रंगमंच", type: "Art Competition", link: "#" }, { name: "तर्क समागम", type: "Debate", link: "#" },
+                { name: "कलम का जादू", type: "Writing Competition", link: "#" }, { name: "काव्योत्सव", type: "Kavi Sammelan", link: "#" },
+                { name: "विस्तृत विवरण", type: "Report Writing", link: "#" }, { name: "वाक् प्रपंच", type: "Extempore", link: "#" },
+                { name: "नारा निर्माण", type: "Slogan Writing", link: "#" }, { name: "स्वर मंच", type: "Open Mic", link: "#" }
             ];
 
             const competitionContainer = document.querySelector('#competitions .grid');
@@ -219,49 +272,35 @@
                 const cardHtml = `
                     <div class="competition-card">
                         <div class="p-6 text-center">
-                            <h3 class="font-hindi text-3xl font-bold text-orange-700">${comp.name}</h3>
-                            <p class="text-gray-600 mb-4">${comp.type}</p>
-                            <a href="${comp.link}" target="_blank" class="inline-block bg-orange-100 text-orange-800 font-semibold py-2 px-6 rounded-full hover:bg-orange-200 transition duration-300">
+                            <h3 class="font-hindi text-3xl font-bold text-yellow-400">${comp.name}</h3>
+                            <p class="text-gray-400 mb-4">${comp.type}</p>
+                            <a href="${comp.link}" target="_blank" class="inline-block bg-yellow-400/10 text-yellow-300 font-semibold py-2 px-6 rounded-full hover:bg-yellow-400/20 transition duration-300">
                                 Participate
                             </a>
                         </div>
-                    </div>
-                `;
+                    </div>`;
                 competitionContainer.innerHTML += cardHtml;
             });
 
             // --- 3D Card Tilt Effect ---
-            const cards = document.querySelectorAll('.competition-card');
-            cards.forEach(card => {
+            document.querySelectorAll('.competition-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    
-                    const rotateX = -y / 20;
-                    const rotateY = x / 20;
-
-                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                    card.style.transform = `rotateX(${-y / 20}deg) rotateY(${x / 20}deg) scale(1.05)`;
                 });
-
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
                 });
             });
 
-
             // --- Invitation Section Logic ---
             const excitedBtn = document.getElementById('excited-btn');
-            const scholarIdInput = document.getElementById('scholarId');
-            const studentNameInput = document.getElementById('studentName');
-            const formError = document.getElementById('form-error');
-            const invitationForm = document.getElementById('invitation-form');
-            const downloadSection = document.getElementById('download-section');
-
             excitedBtn.addEventListener('click', function() {
-                const scholarId = scholarIdInput.value.trim();
-                const studentName = studentNameInput.value.trim();
-                
+                const scholarId = document.getElementById('scholarId').value.trim();
+                const studentName = document.getElementById('studentName').value.trim();
+                const formError = document.getElementById('form-error');
                 if (studentName === '' || scholarId === '') {
                     formError.textContent = 'Please fill in both fields.';
                     return;
@@ -270,29 +309,22 @@
                     formError.textContent = 'Scholar ID must be exactly 7 digits.';
                     return;
                 }
-                
                 formError.textContent = '';
                 launchConfetti();
-                invitationForm.classList.add('hidden');
-                downloadSection.classList.remove('hidden');
+                document.getElementById('invitation-form').classList.add('hidden');
+                document.getElementById('download-section').classList.remove('hidden');
             });
 
             // --- Confetti Animation Function ---
             function launchConfetti() {
-                const duration = 5 * 1000;
-                const animationEnd = Date.now() + duration;
+                const duration = 5 * 1000, animationEnd = Date.now() + duration;
                 const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
-
-                function randomInRange(min, max) {
-                    return Math.random() * (max - min) + min;
-                }
-
-                const interval = setInterval(function() {
+                const interval = setInterval(() => {
                     const timeLeft = animationEnd - Date.now();
                     if (timeLeft <= 0) return clearInterval(interval);
                     const particleCount = 50 * (timeLeft / duration);
-                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random() * 0.4 + 0.1, y: Math.random() - 0.2 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random() * 0.4 + 0.5, y: Math.random() - 0.2 } }));
                 }, 250);
             }
         });
