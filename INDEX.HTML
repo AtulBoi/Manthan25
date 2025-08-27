@@ -133,17 +133,17 @@
                 <div class="swiper-wrapper">
                     <!-- Add your 12 poster images here -->
                     <div class="swiper-slide"><img src="1.png" alt="Event Poster 1"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+2" alt="Event Poster 2"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+3" alt="Event Poster 3"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+4" alt="Event Poster 4"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+5" alt="Event Poster 5"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+6" alt="Event Poster 6"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+7" alt="Event Poster 7"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+8" alt="Event Poster 8"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+9" alt="Event Poster 9"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+10" alt="Event Poster 10"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+11" alt="Event Poster 11"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+12" alt="Event Poster 12"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 2"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 3"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 4"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 5"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 6"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 7"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 8"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 9"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 10"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 11"></div>
+                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 12"></div>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -158,7 +158,7 @@
                 
                 <div id="invitation-form" class="bg-opacity-50 bg-blue-900/10 p-8 rounded-2xl shadow-xl border border-blue-800/20 backdrop-filter backdrop-blur-lg">
                     <div class="space-y-6">
-                        <input type="text" id="scholarId" placeholder="7-Digit Scholar ID" maxlength="7" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
+                        <input type="text" id="scholarId" placeholder="e.g., 2311135 or 25CE10101" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
                         <input type="text" id="studentName" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg focus:outline-none shiny-input">
                     </div>
                     <button id="excited-btn" class="w-full mt-6 font-bold py-3 px-6 rounded-lg shiny-btn">
@@ -257,24 +257,34 @@
                 },
             });
 
-            // --- Competition Data ---
+            // --- UPDATED Competition Data ---
+            const registrationLink = "https://forms.gle/DUBEk4M53m2DsLx69";
             const competitions = [
-                { name: "मेधा मंच", type: "Quiz", link: "#" }, { name: "शब्द सृजन", type: "Essay Writing", link: "#" },
-                { name: "कथा प्रवीणता", type: "Script Writing", link: "#" }, { name: "काव्य प्रतिभा", type: "Online Poetry Writing", link: "#" },
-                { name: "रंगमंच", type: "Art Competition", link: "#" }, { name: "तर्क समागम", type: "Debate", link: "#" },
-                { name: "कलम का जादू", type: "Writing Competition", link: "#" }, { name: "काव्योत्सव", type: "Kavi Sammelan", link: "#" },
-                { name: "विस्तृत विवरण", type: "Report Writing", link: "#" }, { name: "वाक् प्रपंच", type: "Extempore", link: "#" },
-                { name: "नारा निर्माण", type: "Slogan Writing", link: "#" }, { name: "स्वर मंच", type: "Open Mic", link: "#" }
+                { hindiName: "मस्तिष्क मंथन - प्रश्नोत्तरी", englishName: "Quiz", schedule: "01/09/2025 | 5:30 PM - 6:30 PM", link: registrationLink },
+                { hindiName: "निबंध लेखन", englishName: "Essay Writing", schedule: "02/09 - 04/09/2025 | Online", link: registrationLink },
+                { hindiName: "कलम के सिपाही - पटकथा", englishName: "Script Writing", schedule: "03/09/2025 | Online", link: registrationLink },
+                { hindiName: "काव्य धारा", englishName: "Online Poetry Writing", schedule: "04/09/2025", link: registrationLink },
+                { hindiName: "चित्रांतर", englishName: "Art Competition", schedule: "06/09/2025 | 10:00 AM - 12:30 PM", link: registrationLink },
+                { hindiName: "शंखनाद", englishName: "Debate", schedule: "06/09/2025", link: registrationLink },
+                { hindiName: "कलम का जादू", englishName: "Writing Competition", schedule: "07/09/2025", link: registrationLink },
+                { hindiName: "मनोव्याख्या - तत्काल भाषण", englishName: "Extempore", schedule: "07/09/2025", link: registrationLink },
+                { hindiName: "काव्य सम्मेलन", englishName: "Kavi Sammelan", schedule: "10/09/2025 | 5:00 PM - 8:00 PM", link: registrationLink },
+                { hindiName: "विस्तृत विवरण", englishName: "Report Writing", schedule: "11/09/2025 | Online", link: registrationLink },
+                { hindiName: "नारा निर्माण", englishName: "Slogan Writing", schedule: "13/09/2025 | Online", link: registrationLink },
+                { hindiName: "स्वर समागम", englishName: "Open Mic", schedule: "14/09/2025", link: registrationLink }
             ];
 
             const competitionContainer = document.querySelector('#competitions .grid');
             competitions.forEach(comp => {
                 const cardHtml = `
                     <div class="competition-card">
-                        <div class="p-6 text-center">
-                            <h3 class="font-hindi text-3xl font-bold text-yellow-400">${comp.name}</h3>
-                            <p class="text-gray-400 mb-4">${comp.type}</p>
-                            <a href="${comp.link}" target="_blank" class="inline-block bg-yellow-400/10 text-yellow-300 font-semibold py-2 px-6 rounded-full hover:bg-yellow-400/20 transition duration-300">
+                        <div class="p-6 text-center flex flex-col justify-between h-full">
+                            <div>
+                                <h3 class="text-3xl font-bold text-yellow-400">${comp.englishName}</h3>
+                                <p class="font-hindi text-gray-300 mb-1">${comp.hindiName}</p>
+                                <p class="text-sm text-yellow-200/70 mb-4">${comp.schedule}</p>
+                            </div>
+                            <a href="${comp.link}" target="_blank" class="inline-block bg-yellow-400/10 text-yellow-300 font-semibold py-2 px-6 rounded-full hover:bg-yellow-400/20 transition duration-300 mt-auto">
                                 Participate
                             </a>
                         </div>
@@ -296,24 +306,52 @@
             });
 
             // --- Invitation Section Logic ---
-            const excitedBtn = document.getElementById('excited-btn');
-            excitedBtn.addEventListener('click', function() {
-                const scholarId = document.getElementById('scholarId').value.trim();
-                const studentName = document.getElementById('studentName').value.trim();
-                const formError = document.getElementById('form-error');
-                if (studentName === '' || scholarId === '') {
-                    formError.textContent = 'Please fill in both fields.';
-                    return;
-                }
-                if (!/^\d{7}$/.test(scholarId)) {
-                    formError.textContent = 'Scholar ID must be exactly 7 digits.';
-                    return;
-                }
-                formError.textContent = '';
-                launchConfetti();
-                document.getElementById('invitation-form').classList.add('hidden');
-                document.getElementById('download-section').classList.remove('hidden');
-            });
+            // --- Invitation Section Logic ---
+const excitedBtn = document.getElementById('excited-btn');
+excitedBtn.addEventListener('click', async function() {
+    const scholarId = document.getElementById('scholarId').value.trim();
+    const studentName = document.getElementById('studentName').value.trim();
+    const formError = document.getElementById('form-error');
+
+    // Your Apps Script Web App URL
+    const googleScriptUrl = "https://script.google.com/macros/s/AKfycbwNat7_CDfEAtSGQscYg5MkY4gj9LeNE4vVDDoDahiFRkVW2TCkuPsXY2ujPW74G4yeNw/exec";
+
+    if (studentName === '' || scholarId === '') {
+        formError.textContent = 'Please fill in both fields.';
+        return;
+    }
+    const isValidScholarId = /(^(\d{7})$)|(^(\d{2}[A-Z]{2}\d{5})$)/i.test(scholarId);
+    if (!isValidScholarId) {
+        formError.textContent = 'Please enter a valid Scholar ID format.';
+        return;
+    }
+
+    formError.textContent = '';
+    excitedBtn.disabled = true;
+    excitedBtn.textContent = 'Submitting...';
+
+    try {
+        // Send data as FormData (avoids CORS issues)
+        const formData = new FormData();
+        formData.append("scholarId", scholarId);
+        formData.append("studentName", studentName);
+
+        await fetch(googleScriptUrl, { method: "POST", body: formData });
+
+        // Show confetti & success
+        launchConfetti();
+        document.getElementById('invitation-form').classList.add('hidden');
+        document.getElementById('download-section').classList.remove('hidden');
+
+    } catch (error) {
+        console.error('Error submitting:', error);
+        formError.textContent = 'Could not submit. Please try again.';
+    } finally {
+        excitedBtn.disabled = false;
+        excitedBtn.textContent = "I'm Excited!";
+    }
+});
+
 
             // --- Confetti Animation Function ---
             function launchConfetti() {
