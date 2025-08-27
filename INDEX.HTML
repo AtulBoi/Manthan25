@@ -89,7 +89,7 @@
         .swiper-slide {
             background-position: center;
             background-size: cover;
-            width: 400px; /* Adjust size as needed */
+            width: 400px;
             height: 400px;
             box-shadow: 0 15px 50px rgba(0,0,0,0.4);
             border-radius: 1rem;
@@ -106,15 +106,27 @@
             background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
         }
 
+        /* Starfield Canvas Style */
+        #starfield-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind all content */
+        }
+
     </style>
 </head>
 <body class="text-gray-200">
+
+    <!-- Starfield Background Canvas -->
+    <canvas id="starfield-canvas"></canvas>
 
     <!-- 1st Section: MANTHAN '25 (Hero Section) -->
     <header id="home" class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('http://googleusercontent.com/file_content/1');">
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="absolute inset-0 hero-gradient"></div>
-        <canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
         <div class="relative z-10 p-4">
             <h2 class="font-hindi text-4xl md:text-6xl font-bold tracking-wider text-gray-300">हिंदी पखवाड़ा</h2>
             <h1 class="font-hindi text-7xl md:text-9xl font-extrabold my-4 glow-text">मंथन '२५</h1>
@@ -132,18 +144,18 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <!-- Add your 12 poster images here -->
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 1"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 2"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 3"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 4"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 5"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 6"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 7"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 8"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 9"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 10"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 11"></div>
-                    <div class="swiper-slide"><img src="1.png" alt="Event Poster 12"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 1"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+2" alt="Event Poster 2"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+3" alt="Event Poster 3"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+4" alt="Event Poster 4"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+5" alt="Event Poster 5"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+6" alt="Event Poster 6"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+7" alt="Event Poster 7"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+8" alt="Event Poster 8"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+9" alt="Event Poster 9"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+10" alt="Event Poster 10"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+11" alt="Event Poster 11"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+12" alt="Event Poster 12"></div>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -153,7 +165,7 @@
         <!-- 2nd Section: Excited? (Invitation Section) -->
         <section id="excited" class="py-20 px-4">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="font-hindi text-5xl font-bold glow-text mb-4">उत्सुक हैं?</h2>
+                <h2 class="font-hindi text-5xl font-bold glow-text mb-4">EXCITED?-उत्सुक?</h2>
                 <p class="text-lg text-gray-400 mb-8">अपना निमंत्रण पत्र प्राप्त करने के लिए नीचे दिए गए विवरण भरें।</p>
                 
                 <div id="invitation-form" class="bg-opacity-50 bg-blue-900/10 p-8 rounded-2xl shadow-xl border border-blue-800/20 backdrop-filter backdrop-blur-lg">
@@ -168,7 +180,7 @@
                 </div>
 
                 <div id="download-section" class="text-center mt-8 hidden">
-                     <a id="download-btn" href="path/to/your/invitation.pdf" download="Manthan_25_Invitation.pdf" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-110 shadow-lg">
+                     <a id="download-btn" href="invitationmathanpng.png" download="Manthan_25_Invitation.png" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-110 shadow-lg">
                         Download Invitation
                     </a>
                 </div>
@@ -188,50 +200,69 @@
 
     <!-- 4th Section: Footer -->
     <footer class="bg-gray-900/20 text-center py-6">
-        <p>Created by ATUL SINGH (JS of ILLUMINITS)</p>
+        <p>Created by <a href="https://www.instagram.com/atul.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-400 transition-colors">ATUL SINGH (JS of ILLUMINITS)</a></p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Particle Animation for Header ---
-            const canvas = document.getElementById('particle-canvas');
+            // --- Starfield Animation for Background ---
+            const canvas = document.getElementById('starfield-canvas');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            let particles = [];
+            let stars = [];
 
-            function createParticle() {
-                particles.push({
+            function createStar() {
+                stars.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
                     radius: Math.random() * 1.5 + 0.5,
-                    color: 'rgba(255, 215, 0, 0.7)', // Gold color
-                    speedX: (Math.random() - 0.5) * 0.3,
-                    speedY: (Math.random() - 0.5) * 0.3
+                    opacity: Math.random(),
+                    fade: Math.random() > 0.5 ? 'in' : 'out',
+                    speedX: (Math.random() - 0.5) * 0.2, // Slow horizontal speed
+                    speedY: (Math.random() - 0.5) * 0.2  // Slow vertical speed
                 });
+            }
+            
+            function drawStars() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                stars.forEach(star => {
+                    // Update star position
+                    star.x += star.speedX;
+                    star.y += star.speedY;
+
+                    // Handle wall collision
+                    if (star.x < 0 || star.x > canvas.width) star.speedX *= -1;
+                    if (star.y < 0 || star.y > canvas.height) star.speedY *= -1;
+
+                    // Draw the star
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 215, 0, ${star.opacity})`;
+                    ctx.fill();
+
+                    // Animate opacity for twinkling
+                    if (star.fade === 'in') {
+                        star.opacity += 0.005;
+                        if (star.opacity >= 1) star.fade = 'out';
+                    } else {
+                        star.opacity -= 0.005;
+                        if (star.opacity <= 0) {
+                            star.opacity = 0;
+                            star.fade = 'in';
+                        }
+                    }
+                });
+                requestAnimationFrame(drawStars);
             }
 
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
-                    ctx.fill();
-                });
-                requestAnimationFrame(animateParticles);
-            }
-            for(let i = 0; i < 100; i++) createParticle();
-            animateParticles();
+            for(let i = 0; i < 150; i++) createStar();
+            drawStars();
             window.addEventListener('resize', () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
-                particles = [];
-                for(let i = 0; i < 100; i++) createParticle();
+                stars = [];
+                for(let i = 0; i < 150; i++) createStar();
             });
 
             // --- Swiper Slider Initialization ---
@@ -257,7 +288,7 @@
                 },
             });
 
-            // --- UPDATED Competition Data ---
+            // --- Competition Data ---
             const registrationLink = "https://forms.gle/DUBEk4M53m2DsLx69";
             const competitions = [
                 { hindiName: "मस्तिष्क मंथन - प्रश्नोत्तरी", englishName: "Quiz", schedule: "01/09/2025 | 5:30 PM - 6:30 PM", link: registrationLink },
@@ -305,58 +336,30 @@
                 });
             });
 
-            // --- Invitation Section Logic ---
-            // --- Invitation Section Logic ---
-const excitedBtn = document.getElementById('excited-btn');
-excitedBtn.addEventListener('click', async function() {
-    const scholarId = document.getElementById('scholarId').value.trim();
-    const studentName = document.getElementById('studentName').value.trim();
-    const formError = document.getElementById('form-error');
-
-    // Your Apps Script Web App URL
-    const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzJRtqIy_4zy6KdMhLwv47BLvHBQ-bKo0IKlGy6CBFuFeB0YEoGutq9rqFz5xld2ZyDUg/exec";
-
-    if (studentName === '' || scholarId === '') {
-        formError.textContent = 'Please fill in both fields.';
-        return;
-    }
-    const isValidScholarId = /(^(\d{7})$)|(^(\d{2}[A-Z]{2}\d{5})$)/i.test(scholarId);
-    if (!isValidScholarId) {
-        formError.textContent = 'Please enter a valid Scholar ID format.';
-        return;
-    }
-
-    formError.textContent = '';
-    excitedBtn.disabled = true;
-    excitedBtn.textContent = 'Submitting...';
-
-    try {
-        // Send data as FormData (avoids CORS issues)
-        const formData = new FormData();
-        formData.append("scholarId", scholarId);
-        formData.append("studentName", studentName);
-
-        const res = await fetch(googleScriptUrl, { method: "POST", body: formData });
-const result = await res.json();
-
-if (result.status === "success") {
-    launchConfetti();
-    document.getElementById('invitation-form').classList.add('hidden');
-    document.getElementById('download-section').classList.remove('hidden');
-} else {
-    formError.textContent = result.message || "Submission failed.";
-}
-
-
-    } catch (error) {
-        console.error('Error submitting:', error);
-        formError.textContent = 'Could not submit. Please try again.';
-    } finally {
-        excitedBtn.disabled = false;
-        excitedBtn.textContent = "I'm Excited!";
-    }
-});
-
+            // --- Invitation Section Logic (Simplified) ---
+            const excitedBtn = document.getElementById('excited-btn');
+            excitedBtn.addEventListener('click', function() {
+                const scholarId = document.getElementById('scholarId').value.trim();
+                const studentName = document.getElementById('studentName').value.trim();
+                const formError = document.getElementById('form-error');
+                
+                if (studentName === '' || scholarId === '') {
+                    formError.textContent = 'Please fill in both fields.';
+                    return;
+                }
+                const isValidScholarId = /(^(\d{7})$)|(^(\d{2}[A-Z]{2}\d{5})$)/i.test(scholarId);
+                if (!isValidScholarId) {
+                    formError.textContent = 'Please enter a valid Scholar ID format.';
+                    return;
+                }
+                
+                formError.textContent = '';
+                
+                // No data submission, just show the animation and download button
+                launchConfetti();
+                document.getElementById('invitation-form').classList.add('hidden');
+                document.getElementById('download-section').classList.remove('hidden');
+            });
 
             // --- Confetti Animation Function ---
             function launchConfetti() {
