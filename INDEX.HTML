@@ -336,12 +336,17 @@ excitedBtn.addEventListener('click', async function() {
         formData.append("scholarId", scholarId);
         formData.append("studentName", studentName);
 
-        await fetch(googleScriptUrl, { method: "POST", body: formData });
+        const res = await fetch(googleScriptUrl, { method: "POST", body: formData });
+const result = await res.json();
 
-        // Show confetti & success
-        launchConfetti();
-        document.getElementById('invitation-form').classList.add('hidden');
-        document.getElementById('download-section').classList.remove('hidden');
+if (result.status === "success") {
+    launchConfetti();
+    document.getElementById('invitation-form').classList.add('hidden');
+    document.getElementById('download-section').classList.remove('hidden');
+} else {
+    formError.textContent = result.message || "Submission failed.";
+}
+
 
     } catch (error) {
         console.error('Error submitting:', error);
