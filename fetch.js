@@ -1,1 +1,0 @@
-fetch('https://script.google.com/macros/s/AKfycbzzDkCnGRFqI_sM-mKzqGS0F6C5gbOhvY02EScoszc0dKsokzkeboq_kcSaqjRT5oZM/exec')
