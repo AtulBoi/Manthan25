@@ -24,6 +24,7 @@
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(170deg, #0a192f 0%, #173a5e 100%); /* Deep blue gradient */
             color: #e6f1ff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         .font-hindi {
             font-family: 'Tiro Devanagari Hindi', serif;
@@ -80,7 +81,7 @@
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
         }
         
-        /* Swiper Slider Styles */
+        /* Swiper Slider Styles for responsiveness */
         .swiper-container {
             width: 100%;
             padding-top: 50px;
@@ -89,11 +90,17 @@
         .swiper-slide {
             background-position: center;
             background-size: cover;
-            width: 400px;
-            height: 400px;
+            width: 300px; /* Smaller base size for mobile */
+            height: 300px;
             box-shadow: 0 15px 50px rgba(0,0,0,0.4);
             border-radius: 1rem;
             overflow: hidden;
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .swiper-slide {
+                width: 400px;
+                height: 400px;
+            }
         }
         .swiper-slide img {
             display: block;
@@ -128,10 +135,10 @@
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="absolute inset-0 hero-gradient"></div>
         <div class="relative z-10 p-4">
-            <h2 class="font-hindi text-4xl md:text-6xl font-bold tracking-wider text-gray-300">हिंदी पखवाड़ा</h2>
-            <h1 class="font-hindi text-7xl md:text-9xl font-extrabold my-4 glow-text">मंथन '२५</h1>
-            <p class="text-xl md:text-2xl mt-4">१-१४ सितम्बर २०२५</p>
-            <p class="text-lg md:text-xl">काव्य • कथा • संस्कृति</p>
+            <h2 class="font-hindi text-3xl sm:text-4xl md:text-6xl font-bold tracking-wider text-gray-300">हिंदी पखवाड़ा</h2>
+            <h1 class="font-hindi text-6xl sm:text-7xl md:text-9xl font-extrabold my-4 glow-text">मंथन '२५</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mt-4">१-१४ सितम्बर २०२५</p>
+            <p class="text-base sm:text-lg md:text-xl">काव्य • कथा • संस्कृति</p>
             <a href="#competitions" class="mt-8 inline-block text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shiny-btn">
                 Explore Events
             </a>
@@ -144,18 +151,19 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <!-- Add your 12 poster images here -->
+                    <!-- NOTE: 'manthan posters.png' is a local file path. For the web, you need to upload this image and use its URL. -->
                     <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 1"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+2" alt="Event Poster 2"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+3" alt="Event Poster 3"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+4" alt="Event Poster 4"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+5" alt="Event Poster 5"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+6" alt="Event Poster 6"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+7" alt="Event Poster 7"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+8" alt="Event Poster 8"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+9" alt="Event Poster 9"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+10" alt="Event Poster 10"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+11" alt="Event Poster 11"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/1080x1080/0a192f/FFD700?text=Poster+12" alt="Event Poster 12"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 2"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 3"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 4"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 5"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 6"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 7"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 8"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 9"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 10"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 11"></div>
+                    <div class="swiper-slide"><img src="manthan posters.png" alt="Event Poster 12"></div>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -165,7 +173,7 @@
         <!-- 2nd Section: Excited? (Invitation Section) -->
         <section id="excited" class="py-20 px-4">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="font-hindi text-5xl font-bold glow-text mb-4">EXCITED?-उत्सुक?</h2>
+                <h2 class="font-hindi text-4xl sm:text-5xl font-bold glow-text mb-4">EXCITED?-उत्सुक?</h2>
                 <p class="text-lg text-gray-400 mb-8">अपना निमंत्रण पत्र प्राप्त करने के लिए नीचे दिए गए विवरण भरें।</p>
                 
                 <div id="invitation-form" class="bg-opacity-50 bg-blue-900/10 p-8 rounded-2xl shadow-xl border border-blue-800/20 backdrop-filter backdrop-blur-lg">
@@ -190,7 +198,7 @@
         <!-- 3rd Section: Participate in Competitions -->
         <section id="competitions" class="py-20 px-4">
             <div class="max-w-6xl mx-auto">
-                <h2 class="font-hindi text-5xl font-bold text-center glow-text mb-12">प्रतियोगिताओं में भाग लें</h2>
+                <h2 class="font-hindi text-4xl sm:text-5xl font-bold text-center glow-text mb-12">प्रतियोगिताओं में भाग लें</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="perspective: 1000px;">
                     <!-- Competition Cards will be dynamically inserted here -->
                 </div>
@@ -211,6 +219,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             let stars = [];
+            let fallingStars = [];
 
             function createStar() {
                 stars.push({
@@ -219,49 +228,75 @@
                     radius: Math.random() * 1.5 + 0.5,
                     opacity: Math.random(),
                     fade: Math.random() > 0.5 ? 'in' : 'out',
-                    speedX: (Math.random() - 0.5) * 0.2, // Slow horizontal speed
-                    speedY: (Math.random() - 0.5) * 0.2  // Slow vertical speed
+                    speedX: (Math.random() - 0.5) * 0.1,
+                    speedY: (Math.random() - 0.5) * 0.1
+                });
+            }
+
+            function createFallingStar() {
+                fallingStars.push({
+                    x: Math.random() * canvas.width,
+                    y: -10,
+                    length: Math.random() * 20 + 10,
+                    speed: Math.random() * 4 + 4,
+                    opacity: 1
                 });
             }
             
-            function drawStars() {
+            function drawAnimations() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw drifting, twinkling stars
                 stars.forEach(star => {
-                    // Update star position
                     star.x += star.speedX;
                     star.y += star.speedY;
 
-                    // Handle wall collision
                     if (star.x < 0 || star.x > canvas.width) star.speedX *= -1;
                     if (star.y < 0 || star.y > canvas.height) star.speedY *= -1;
 
-                    // Draw the star
                     ctx.beginPath();
                     ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(255, 215, 0, ${star.opacity})`;
                     ctx.fill();
 
-                    // Animate opacity for twinkling
                     if (star.fade === 'in') {
                         star.opacity += 0.005;
                         if (star.opacity >= 1) star.fade = 'out';
                     } else {
                         star.opacity -= 0.005;
-                        if (star.opacity <= 0) {
-                            star.opacity = 0;
-                            star.fade = 'in';
-                        }
+                        if (star.opacity <= 0) star.fade = 'in';
                     }
                 });
-                requestAnimationFrame(drawStars);
+
+                // Draw falling stars
+                fallingStars.forEach((fs, index) => {
+                    fs.y += fs.speed;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(fs.x, fs.y);
+                    ctx.lineTo(fs.x, fs.y - fs.length);
+                    ctx.strokeStyle = `rgba(255, 215, 0, ${fs.opacity})`;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    if (fs.y > canvas.height + 20) {
+                        fallingStars.splice(index, 1);
+                    }
+                });
+
+                requestAnimationFrame(drawAnimations);
             }
 
             for(let i = 0; i < 150; i++) createStar();
-            drawStars();
+            // Periodically create new falling stars
+            setInterval(createFallingStar, 2000); 
+            drawAnimations();
+
             window.addEventListener('resize', () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
                 stars = [];
+                fallingStars = [];
                 for(let i = 0; i < 150; i++) createStar();
             });
 
@@ -378,3 +413,4 @@
 
 </body>
 </html>
+
